@@ -1,4 +1,4 @@
-package com.example.cocktailsapp
+package com.example.cocktailapp
 
 import org.junit.Test
 
