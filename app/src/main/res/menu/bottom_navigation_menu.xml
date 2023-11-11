@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/search_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_search_icon"
+        android:title="Search" />
+    <item
+        android:id="@+id/categories_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_categories_icon"
+        android:title="Categories"/>
+    <item
+        android:id="@+id/ingredients_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_ingredients_icon"
+        android:title="Ingredients"/>
+    <item
+        android:id="@+id/favorites_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorites_icon"
+
+        android:title="Favorites"/>
+</menu>
