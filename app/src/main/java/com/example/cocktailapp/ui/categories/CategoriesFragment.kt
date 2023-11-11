@@ -1,5 +1,6 @@
 package com.example.cocktailapp.ui.categories
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
 import com.example.cocktailapp.core.model.Category.Category
 import com.example.cocktailapp.core.service.CategoriesFetcher
-import com.google.android.material.card.MaterialCardView
+import com.example.cocktailapp.ui.cocktails.CocktailsActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.CircularProgressIndicator
 
@@ -67,7 +68,7 @@ class CategoriesFragment : Fragment(), CategoryAdapter.OnCategoryItemClickListen
     private fun displayNetworkCallError() {
         activity?.runOnUiThread {
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Erreur")
+                .setTitle("Error")
                 .setMessage("Check your internet connection")
                 .setPositiveButton("Reload") { _, _ ->
                     performFromNetworkCall()
@@ -77,8 +78,11 @@ class CategoriesFragment : Fragment(), CategoryAdapter.OnCategoryItemClickListen
     }
 
     override fun onCategoryItemClick(category: Category) {
-        Log.d("ItemClicked", "Item clicked at position ${category.title}")
-        // You can perform additional actions here if needed
+        Log.d("ItemClicked", "Item clicked category ${category.title}")
+        val intent = Intent(requireContext(), CocktailsActivity::class.java)
+        intent.putExtra("data",category.title)
+        intent.putExtra("key","c")
+        startActivity(intent)
     }
 
 

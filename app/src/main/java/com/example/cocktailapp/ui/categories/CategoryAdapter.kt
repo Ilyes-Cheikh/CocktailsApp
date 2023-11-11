@@ -15,13 +15,7 @@ class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     init {
         titleTextView = itemView.findViewById(R.id.list_item_text)
-        itemView.setOnClickListener {
-            val position = adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                Log.d("ItemClicked", "Item clicked at position $position")
-                // You can perform additional actions here if needed
-            }
-        }
+
     }
 }
 
