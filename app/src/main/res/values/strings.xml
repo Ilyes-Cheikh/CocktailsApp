@@ -18,5 +18,7 @@
     <string name="titleIngredients">Unlock a World of Ingredients and Elevate Your Mixology Adventures</string>
     <string name="titleAlcohol">Refine Your Search: Choose Between Alcoholic and Non-Alcoholic Cocktails</string>
     <string name="titleFavorites">Your Favorites: Top-Picked Cocktails for Your Enjoyment</string>
+    <string name="no_favorites_available">No favorites available</string>
+    <string name="cocktailsApp">Cocktails App</string>
 
 </resources>

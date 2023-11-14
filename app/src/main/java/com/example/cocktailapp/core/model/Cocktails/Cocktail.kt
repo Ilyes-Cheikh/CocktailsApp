@@ -9,4 +9,10 @@ class Cocktail {
     var titleDrink: String? = null
     @SerializedName("strDrinkThumb")
     var imageDrink: String? = null
+
+    constructor(idDrink: String?, titleDrink: String?, imageDrink: String?) {
+       this.idDrink = idDrink
+       this.titleDrink = titleDrink
+       this.imageDrink = imageDrink
+    }
 }
