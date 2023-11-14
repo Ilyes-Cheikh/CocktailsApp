@@ -1,18 +1,19 @@
 package com.example.cocktailapp
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Display
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cocktailapp.ui.categories.CategoriesFragment
 import com.example.cocktailapp.ui.favorites.FavoritesFragment
 import com.example.cocktailapp.ui.ingredients.IngredientsFragment
 import com.example.cocktailapp.ui.search.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     private lateinit var tabLayout: BottomNavigationView
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
