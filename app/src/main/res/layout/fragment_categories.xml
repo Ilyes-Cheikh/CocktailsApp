@@ -24,6 +24,18 @@
 
 </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/titleCategories"
+        android:textSize="22sp"
+        android:paddingTop="15dp"
+        android:gravity="center"
+        android:textColor="@color/purple"
+        android:fontFamily="@font/spacegroteskregular"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

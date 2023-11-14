@@ -16,6 +16,12 @@
         android:icon="@drawable/ic_ingredients_icon"
         android:title="Ingredients"/>
     <item
+        android:id="@+id/alcohol_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_alcohol_icon"
+
+        android:title="@string/filter"/>
+    <item
         android:id="@+id/favorites_page"
         android:enabled="true"
         android:icon="@drawable/ic_favorites_icon"
