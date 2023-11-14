@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="turquoise" > #2CCED2 </color>
     <color name="orange"> #F24438 </color>
+    <color name="purple">#985F99</color>
+    <color name="dark_purple">#271F30</color>
+    <color name="eggshell"> #F1E9DA</color>
 </resources>

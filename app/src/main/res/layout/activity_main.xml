@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/eggshell"
+    >
 
 
    <androidx.fragment.app.FragmentContainerView
@@ -25,7 +27,10 @@
         app:menu="@menu/bottom_navigation_menu"
         app:labelVisibilityMode="labeled"
         app:itemHorizontalTranslationEnabled="false"
-        android:background="@color/orange"
+        android:background="@color/purple"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+
         />
 
 
