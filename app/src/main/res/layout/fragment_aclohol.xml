@@ -17,7 +17,7 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/favorites"
+            app:title="@string/alcohol"
             app:titleCentered="true"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             />
@@ -28,13 +28,35 @@
         android:layout_width="391dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/titleFavorites"
-        android:textSize="22sp"
-        android:paddingTop="15dp"
+        android:fontFamily="@font/spacegroteskregular"
         android:gravity="center"
+        android:paddingTop="15dp"
+        android:text="@string/titleAlcohol"
         android:textColor="@color/purple"
-        />
+        android:textSize="22sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btnAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnAlcohol"
+            android:layout_marginHorizontal="8dp"
+            />
+
+        <Button
+            android:id="@+id/btnNonAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnNonAlcohol"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
@@ -53,12 +75,5 @@
         android:layout_marginTop="@android:dimen/app_icon_size"
         android:layout_gravity="center" />
 
-    <ImageView
-        android:id="@+id/empty_list_icon"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_empty_icon"
-        android:layout_gravity="center"
 
-        android:visibility="gone" />
 </LinearLayout>

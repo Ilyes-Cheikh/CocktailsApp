@@ -80,7 +80,7 @@ class IngredientsFragment : Fragment() , IngredientAdapter.OnIngredientItemClick
     override fun onIngredientItemClick(ingredient: Ingredient) {
         Log.d("ItemClicked", "Item ingredient clicked : ${ingredient.title}")
         val intent =Intent(requireContext(), CocktailsActivity::class.java)
-        intent.putExtra("ingredient",ingredient.title)
+        intent.putExtra("data",ingredient.title)
         intent.putExtra("key","i")
         startActivity(intent)
     }

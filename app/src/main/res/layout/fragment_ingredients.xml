@@ -24,6 +24,19 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Explore a variety of drink recipes right here, and elevate your beverage experience"
+        android:textSize="22sp"
+        android:paddingTop="15dp"
+        android:gravity="center"
+        android:textColor="@color/purple"
+        android:fontFamily="@font/spacegroteskregular"
+        android:id="@+id/searchpage_textview"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

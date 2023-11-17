@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CocktailApp"
         tools:targetApi="31">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.cocktails.CocktailsActivity"
             android:exported="false" />
         <activity
