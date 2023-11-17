@@ -4,15 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
 import com.example.cocktailapp.core.model.Cocktails.Cocktail
+import com.squareup.picasso.Picasso
 
 class CocktailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     var titleTextView : TextView? = null
+    var cocktailImageView : ImageView? = null
     init {
         titleTextView = itemView.findViewById(R.id.textViewName)
+        cocktailImageView = itemView.findViewById(R.id.list_item_image)
     }
 
 }
@@ -45,5 +49,6 @@ class CocktailAdapter (val context: Context, val cocktails : List<Cocktail>):
         holder.itemView.setOnClickListener {
             onCocktailItemClickListener?.onItemClick(cocktail)
         }
+        Picasso.get().load(cocktail.imageDrink).into(holder.cocktailImageView)
     }
 }

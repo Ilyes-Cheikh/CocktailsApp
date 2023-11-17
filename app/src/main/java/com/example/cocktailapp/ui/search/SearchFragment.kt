@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
@@ -23,6 +24,7 @@ class SearchFragment : Fragment() , CocktailAdapter.OnItemClickListener {
     private  lateinit var progressIndicator: CircularProgressIndicator
     private lateinit var  search_text: TextInputEditText
     private  lateinit var  search_button : Button
+    private  lateinit var  cocktail_image : ImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
