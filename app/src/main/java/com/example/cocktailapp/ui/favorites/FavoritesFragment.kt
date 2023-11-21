@@ -15,6 +15,7 @@ import com.example.cocktailapp.core.model.Cocktails.Cocktail
 import com.example.cocktailapp.core.service.CocktailsFetcher
 import com.example.cocktailapp.core.service.FavoritesFetcher
 import com.example.cocktailapp.ui.cocktails.CocktailsActivity
+import com.example.cocktailapp.ui.recipe.RecipeActivity
 import com.example.cocktailapp.ui.search.CocktailAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -81,8 +82,9 @@ class FavoritesFragment : Fragment(), CocktailAdapter.OnItemClickListener {
 
     }
     override fun onItemClick(cocktail: Cocktail) {
-        val intent = Intent(requireContext(), CocktailsActivity::class.java)
+        val intent = Intent(requireContext(), RecipeActivity::class.java)
         intent.putExtra("id", cocktail.idDrink)
+        startActivity(intent)
 
     }
     companion object {

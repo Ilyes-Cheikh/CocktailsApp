@@ -1,5 +1,6 @@
 package com.example.cocktailapp.ui.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
 import com.example.cocktailapp.core.model.Cocktails.Cocktail
 import com.example.cocktailapp.core.service.CocktailsFetcher
+import com.example.cocktailapp.ui.recipe.RecipeActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
@@ -109,7 +111,10 @@ class SearchFragment : Fragment() , CocktailAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(cocktail: Cocktail) {
-
+        Log.d("ItemClicked", "Item clicked cocktail ${cocktail.titleDrink}")
+        val intent = Intent(requireContext(), RecipeActivity::class.java)
+        intent.putExtra("id",cocktail.idDrink)
+        startActivity(intent)
     }
     companion object {
         @JvmStatic

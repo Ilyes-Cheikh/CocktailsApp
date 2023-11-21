@@ -1,5 +1,6 @@
 package com.example.cocktailapp.ui.cocktails
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
 import com.example.cocktailapp.core.model.Cocktails.Cocktail
 import com.example.cocktailapp.core.service.CocktailsFetcher
+import com.example.cocktailapp.ui.recipe.RecipeActivity
 import com.example.cocktailapp.ui.search.CocktailAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -86,6 +88,9 @@ class CocktailsActivity : AppCompatActivity(), CocktailAdapter.OnItemClickListen
     }
 
     override fun onItemClick(cocktail: Cocktail) {
-        // Handle item click event here
+        Log.d("ItemClicked", "Item clicked cocktail ${cocktail.titleDrink}")
+        val intent = Intent(this, RecipeActivity::class.java)
+        intent.putExtra("id",cocktail.idDrink)
+        startActivity(intent)
     }
 }
