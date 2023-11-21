@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Cocktails.Cocktail
+import com.example.cocktailapp.core.model.cocktails.Cocktail
 import com.squareup.picasso.Picasso
 
 class CocktailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

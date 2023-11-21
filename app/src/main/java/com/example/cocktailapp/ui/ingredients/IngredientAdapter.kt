@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Ingredient.Ingredient
+import com.example.cocktailapp.core.model.ingredient.Ingredient
 
 class IngredientViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var titleTextView: TextView? = null

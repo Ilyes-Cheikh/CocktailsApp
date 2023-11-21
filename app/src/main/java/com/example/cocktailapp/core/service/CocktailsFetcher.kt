@@ -1,8 +1,8 @@
 package com.example.cocktailapp.core.service
 
 import android.util.Log
-import com.example.cocktailapp.core.model.Cocktails.Cocktail
-import com.example.cocktailapp.core.model.Cocktails.CocktailsSearchResponse
+import com.example.cocktailapp.core.model.cocktails.Cocktail
+import com.example.cocktailapp.core.model.cocktails.CocktailsSearchResponse
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 
@@ -18,6 +18,7 @@ class CocktailsFetcher {
             "i" -> "${baseUrl}filter.php?i=$data"
             "alcoholic" -> "${baseUrl}filter.php?a=Alcoholic"
             "nonalcoholic" -> "${baseUrl}filter.php?a=Non_Alcoholic"
+            "random" -> "${baseUrl}random.php"
             else -> "${baseUrl}search.php?s=margarita"
         }
     }

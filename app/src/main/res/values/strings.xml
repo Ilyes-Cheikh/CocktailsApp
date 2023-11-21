@@ -20,5 +20,6 @@
     <string name="titleFavorites">Your Favorites: Top-Picked Cocktails for Your Enjoyment</string>
     <string name="no_favorites_available">No favorites available</string>
     <string name="cocktailsApp">Cocktails App</string>
+    <string name="randomRecipe">Random cocktail</string>
 
 </resources>

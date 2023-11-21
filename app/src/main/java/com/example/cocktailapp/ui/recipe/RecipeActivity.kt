@@ -7,14 +7,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Cocktails.Cocktail
-import com.example.cocktailapp.core.model.Recipe.Recipe
-import com.example.cocktailapp.core.service.CocktailsFetcher
+import com.example.cocktailapp.core.model.cocktails.Cocktail
+import com.example.cocktailapp.core.model.recipe.Recipe
 import com.example.cocktailapp.core.service.FavoritesFetcher
 import com.example.cocktailapp.core.service.RecipeFetcher
-import com.example.cocktailapp.ui.search.CocktailAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.squareup.picasso.Picasso

@@ -2,7 +2,7 @@ package com.example.cocktailapp.core.service
 
 import android.content.SharedPreferences
 import android.content.Context
-import com.example.cocktailapp.core.model.Cocktails.Cocktail
+import com.example.cocktailapp.core.model.cocktails.Cocktail
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -15,6 +15,9 @@ class FavoritesFetcher(private val context: Context) {
 
     private val gson = Gson()
      fun addFavorite(cocktail: Cocktail){
+         if(isFavorite(cocktail.idDrink!!)){
+             return
+         }
         val list = getListOfFavorites().toMutableList()
         list.add(cocktail)
         val listJson = gson.toJson(list)
@@ -33,6 +36,10 @@ class FavoritesFetcher(private val context: Context) {
     }
 
     fun removeFavorites(id:String){
+        if (!isFavorite(id)){
+            return
+        }
+
         val list = getListOfFavorites().toMutableList()
         list.removeIf { it.idDrink == id }
         val listJson = gson.toJson(list)

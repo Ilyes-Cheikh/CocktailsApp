@@ -3,6 +3,7 @@ package com.example.cocktailapp
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.cocktailapp.ui.categories.CategoriesFragment
 import com.example.cocktailapp.ui.favorites.FavoritesFragment
 import com.example.cocktailapp.ui.ingredients.IngredientsFragment
@@ -12,68 +13,48 @@ import com.example.cocktailapp.ui.alcohol.AlcoholFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var tabLayout: BottomNavigationView
+    private var currentFragmentTag: String? = null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         tabLayout = findViewById(R.id.tab_layout)
-        displaySearchFragment()
+        displayFragment(SearchFragment.newInstance(),"search_fragment")
         navigate()
     }
 
-    private fun displaySearchFragment(){
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container_view, SearchFragment.newInstance())
-            .commit()
-    }
-    private fun displayCategoriesFragment(){
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container_view, CategoriesFragment.newInstance())
-            .commit()
-    }
-    private fun displayIngredientsFragment(){
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container_view, IngredientsFragment.newInstance())
-            .commit()
+    private fun displayFragment(fragment: Fragment, tag: String){
+        if (tag != currentFragmentTag) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_view, fragment, tag)
+                .commit()
+
+            currentFragmentTag = tag
+        }
     }
 
-    private fun displayAlcoholFragment(){
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container_view, AlcoholFragment.newInstance())
-            .commit()
-    }
-    private fun displayFavoritesFragment(){
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container_view, FavoritesFragment.newInstance())
-            .commit()
-    }
 
     private  fun navigate(){
         tabLayout.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.search_page -> {
-                    displaySearchFragment()
+                    displayFragment(SearchFragment.newInstance(),"search_fragment")
                     true
                 }
                 R.id.categories_page -> {
-                    displayCategoriesFragment()
+                    displayFragment(CategoriesFragment.newInstance(),"categories_fragment")
                     true
                 }
                 R.id.ingredients_page -> {
-                    displayIngredientsFragment()
+                    displayFragment(IngredientsFragment.newInstance(),"ingredients_fragment")
                     true
                 }
                 R.id.favorites_page -> {
-                    displayFavoritesFragment()
+                    displayFragment(FavoritesFragment.newInstance(),"favorites_fragment")
                     true
                 }
                 R.id.alcohol_page -> {
-                    displayAlcoholFragment()
+                    displayFragment(AlcoholFragment.newInstance(),"alcohol_fragment")
                     true
                 }
                 else -> false

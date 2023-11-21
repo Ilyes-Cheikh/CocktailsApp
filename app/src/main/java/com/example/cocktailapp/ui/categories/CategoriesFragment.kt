@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Category.Category
+import com.example.cocktailapp.core.model.category.Category
 import com.example.cocktailapp.core.service.CategoriesFetcher
 import com.example.cocktailapp.ui.cocktails.CocktailsActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -38,12 +38,16 @@ class CategoriesFragment : Fragment(), CategoryAdapter.OnCategoryItemClickListen
     }
 
     private fun displayCategories(categories: List<Category>) {
-        categoryAdapter = CategoryAdapter(requireContext(), categories)
-        recyclerView.adapter = categoryAdapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        categoryAdapter.setOnCategoryItemClickListener(this)
-        recyclerView.visibility = View.VISIBLE
-        progressIndicator.visibility = View.GONE
+
+        if(isAdded){
+            categoryAdapter = CategoryAdapter(requireContext(), categories)
+            recyclerView.adapter = categoryAdapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            categoryAdapter.setOnCategoryItemClickListener(this)
+            recyclerView.visibility = View.VISIBLE
+            progressIndicator.visibility = View.GONE
+        }
+
     }
 
     private fun performFromNetworkCall() {
@@ -66,23 +70,29 @@ class CategoriesFragment : Fragment(), CategoryAdapter.OnCategoryItemClickListen
     }
 
     private fun displayNetworkCallError() {
-        activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Error")
-                .setMessage("Check your internet connection")
-                .setPositiveButton("Reload") { _, _ ->
-                    performFromNetworkCall()
-                }
-                .show()
+        if(isAdded){
+            activity?.runOnUiThread {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Error")
+                    .setMessage("Check your internet connection")
+                    .setPositiveButton("Reload") { _, _ ->
+                        performFromNetworkCall()
+                    }
+                    .show()
+            }
         }
+
     }
 
     override fun onCategoryItemClick(category: Category) {
-        Log.d("ItemClicked", "Item clicked category ${category.title}")
-        val intent = Intent(requireContext(), CocktailsActivity::class.java)
-        intent.putExtra("data",category.title)
-        intent.putExtra("key","c")
-        startActivity(intent)
+        if(isAdded){
+            Log.d("ItemClicked", "Item clicked category ${category.title}")
+            val intent = Intent(requireContext(), CocktailsActivity::class.java)
+            intent.putExtra("data",category.title)
+            intent.putExtra("key","c")
+            startActivity(intent)
+        }
+
     }
 
 

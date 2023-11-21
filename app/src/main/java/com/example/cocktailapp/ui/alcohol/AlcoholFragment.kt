@@ -2,7 +2,6 @@ package com.example.cocktailapp.ui.alcohol
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +10,12 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Cocktails.Cocktail
+import com.example.cocktailapp.core.model.cocktails.Cocktail
 import com.example.cocktailapp.core.service.CocktailsFetcher
-import com.example.cocktailapp.ui.cocktails.CocktailsActivity
 import com.example.cocktailapp.ui.recipe.RecipeActivity
 import com.example.cocktailapp.ui.search.CocktailAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import com.google.android.material.textfield.TextInputEditText
 
 
 class AlcoholFragment : Fragment(), CocktailAdapter.OnItemClickListener {
@@ -57,12 +54,14 @@ class AlcoholFragment : Fragment(), CocktailAdapter.OnItemClickListener {
     }
 
     private fun displayCocktails(cocktails: List<Cocktail>){
-        searchAdapter = CocktailAdapter(requireContext(), cocktails)
-        recyclerView.adapter = searchAdapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        searchAdapter.setOnItemClickListener(this)
-        progressIndicator.visibility = View.GONE
-        recyclerView.visibility = View.VISIBLE
+        if(isAdded) {
+            searchAdapter = CocktailAdapter(requireContext(), cocktails)
+            recyclerView.adapter = searchAdapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            searchAdapter.setOnItemClickListener(this)
+            progressIndicator.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+        }
 
     }
 
@@ -78,40 +77,44 @@ class AlcoholFragment : Fragment(), CocktailAdapter.OnItemClickListener {
         }
     }
     private fun performFromNetworkCall(key : String ){
-        progressIndicator.visibility = View.VISIBLE
-        progressIndicator.isIndeterminate= true
-        recyclerView.visibility = View.GONE
-        CocktailsFetcher().fetchCocktails(
-            "",
-            key,
-            success = { cocktails ->
-                activity?.runOnUiThread {
-                    if(cocktails.isEmpty()){
-                        MaterialAlertDialogBuilder(requireContext())
-                            .setTitle("Information")
-                            .setMessage("No cocktails found")
-                            .setPositiveButton("OK") { _, _ ->
+        if(isAdded) {
+            progressIndicator.visibility = View.VISIBLE
+            progressIndicator.isIndeterminate = true
+            recyclerView.visibility = View.GONE
+            CocktailsFetcher().fetchCocktails(
+                "",
+                key,
+                success = { cocktails ->
+                    activity?.runOnUiThread {
+                        if (cocktails.isEmpty()) {
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setTitle("Information")
+                                .setMessage("No cocktails found")
+                                .setPositiveButton("OK") { _, _ ->
 
-                            }
-                            .show()
-                        progressIndicator.visibility = View.GONE
+                                }
+                                .show()
+                            progressIndicator.visibility = View.GONE
 
-                        return@runOnUiThread
+                            return@runOnUiThread
+                        }
+                        displayCocktails(cocktails)
                     }
-                    displayCocktails(cocktails)
+                },
+                error = {
+                    displayError()
+                    recyclerView.isClickable = true
                 }
-            },
-            error = {
-                displayError()
-                recyclerView.isClickable = true
-            }
-        )
+            )
+        }
     }
 
     override fun onItemClick(cocktail: Cocktail) {
-        val intent = Intent(requireContext(), RecipeActivity::class.java)
-        intent.putExtra("id", cocktail.idDrink)
-        startActivity(intent)
+        if(isAdded) {
+            val intent = Intent(requireContext(), RecipeActivity::class.java)
+            intent.putExtra("id", cocktail.idDrink)
+            startActivity(intent)
+        }
     }
 
 

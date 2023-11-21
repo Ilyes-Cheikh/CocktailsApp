@@ -1,14 +1,13 @@
 package com.example.cocktailapp.ui.categories
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Category.Category
+import com.example.cocktailapp.core.model.category.Category
 
 class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var titleTextView: TextView? = null

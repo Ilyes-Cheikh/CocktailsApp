@@ -8,7 +8,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Cocktails.Cocktail
+import com.example.cocktailapp.core.model.cocktails.Cocktail
 import com.example.cocktailapp.core.service.CocktailsFetcher
 import com.example.cocktailapp.ui.recipe.RecipeActivity
 import com.example.cocktailapp.ui.search.CocktailAdapter

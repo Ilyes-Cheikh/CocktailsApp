@@ -1,8 +1,8 @@
 package com.example.cocktailapp.core.service
 
 import android.util.Log
-import com.example.cocktailapp.core.model.Category.CategoriesResponse
-import com.example.cocktailapp.core.model.Category.Category
+import com.example.cocktailapp.core.model.category.CategoriesResponse
+import com.example.cocktailapp.core.model.category.Category
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import java.io.IOException

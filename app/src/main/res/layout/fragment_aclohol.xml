@@ -20,6 +20,8 @@
             app:title="@string/alcohol"
             app:titleCentered="true"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:backgroundTint="@color/purple"
+
             />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -48,12 +50,16 @@
             android:layout_height="wrap_content"
             android:text="@string/btnAlcohol"
             android:layout_marginHorizontal="8dp"
+            android:backgroundTint="@color/purple"
+
             />
 
         <Button
             android:id="@+id/btnNonAlcohol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+
             android:text="@string/btnNonAlcohol"/>
 
     </LinearLayout>

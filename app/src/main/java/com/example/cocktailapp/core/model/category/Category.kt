@@ -1,4 +1,4 @@
-package com.example.cocktailapp.core.model.Category
+package com.example.cocktailapp.core.model.category
 
 import com.google.gson.annotations.SerializedName
 

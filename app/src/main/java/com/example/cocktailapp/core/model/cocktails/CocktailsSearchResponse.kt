@@ -1,4 +1,4 @@
-package com.example.cocktailapp.core.model.Cocktails
+package com.example.cocktailapp.core.model.cocktails
 
 import com.google.gson.annotations.SerializedName
 

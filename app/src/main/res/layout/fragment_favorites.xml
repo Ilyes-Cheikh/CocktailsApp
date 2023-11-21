@@ -20,6 +20,8 @@
             app:title="@string/favorites"
             app:titleCentered="true"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:backgroundTint="@color/purple"
+
             />
 
     </com.google.android.material.appbar.AppBarLayout>

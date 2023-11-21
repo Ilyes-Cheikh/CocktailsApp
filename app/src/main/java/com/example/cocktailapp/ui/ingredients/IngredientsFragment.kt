@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailapp.R
-import com.example.cocktailapp.core.model.Ingredient.Ingredient
+import com.example.cocktailapp.core.model.ingredient.Ingredient
 import com.example.cocktailapp.core.service.IngredientFetcher
 import com.example.cocktailapp.ui.cocktails.CocktailsActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -38,12 +38,16 @@ class IngredientsFragment : Fragment() , IngredientAdapter.OnIngredientItemClick
     }
 
     private fun displayIngredients(ingredients: List<Ingredient>) {
-        ingredientAdapter = IngredientAdapter(requireContext(), ingredients)
-        recyclerView.adapter = ingredientAdapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        ingredientAdapter.setOnIngredientItemClickListener(this)
-        recyclerView.visibility = View.VISIBLE
-        progressIndicator.visibility = View.GONE
+
+        if(isAdded){
+            ingredientAdapter = IngredientAdapter(requireContext(), ingredients)
+            recyclerView.adapter = ingredientAdapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            ingredientAdapter.setOnIngredientItemClickListener(this)
+            recyclerView.visibility = View.VISIBLE
+            progressIndicator.visibility = View.GONE
+        }
+
     }
 
     private fun performFromNetworkCall() {
@@ -66,23 +70,30 @@ class IngredientsFragment : Fragment() , IngredientAdapter.OnIngredientItemClick
     }
 
     private fun displayNetworkCallError() {
-        activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Error")
-                .setMessage("Check your internet connection")
-                .setPositiveButton("Reload") { _, _ ->
-                    performFromNetworkCall()
-                }
-                .show()
+        if(isAdded){
+            activity?.runOnUiThread {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Error")
+                    .setMessage("Check your internet connection")
+                    .setPositiveButton("Reload") { _, _ ->
+                        performFromNetworkCall()
+                    }
+                    .show()
+            }
         }
+
     }
 
     override fun onIngredientItemClick(ingredient: Ingredient) {
-        Log.d("ItemClicked", "Item ingredient clicked : ${ingredient.title}")
-        val intent =Intent(requireContext(), CocktailsActivity::class.java)
-        intent.putExtra("data",ingredient.title)
-        intent.putExtra("key","i")
-        startActivity(intent)
+
+        if(isAdded){
+            Log.d("ItemClicked", "Item ingredient clicked : ${ingredient.title}")
+            val intent =Intent(requireContext(), CocktailsActivity::class.java)
+            intent.putExtra("data",ingredient.title)
+            intent.putExtra("key","i")
+            startActivity(intent)
+        }
+
     }
 
     companion object {

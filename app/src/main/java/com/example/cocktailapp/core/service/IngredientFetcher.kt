@@ -1,8 +1,8 @@
 package com.example.cocktailapp.core.service
 
 import android.util.Log
-import com.example.cocktailapp.core.model.Ingredient.Ingredient
-import com.example.cocktailapp.core.model.Ingredient.IngredientsResponse
+import com.example.cocktailapp.core.model.ingredient.Ingredient
+import com.example.cocktailapp.core.model.ingredient.IngredientsResponse
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import java.io.IOException
