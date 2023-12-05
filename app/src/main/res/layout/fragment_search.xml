@@ -19,10 +19,25 @@
             app:title="Search"
             app:titleCentered="true"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            app:menu="@menu/bar_menu"
+
 
             />
     </com.google.android.material.appbar.AppBarLayout>
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/random_recipe"
+        android:layout_marginTop="20dp"
+        android:enabled="true"
+        android:src="@drawable/ic_random_icon"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/randomRecipe"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

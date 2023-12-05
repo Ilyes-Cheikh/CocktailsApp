@@ -27,11 +27,9 @@ class SearchFragment : Fragment() , CocktailAdapter.OnItemClickListener {
     private lateinit var searchAdapter: CocktailAdapter
     private  lateinit var progressIndicator: CircularProgressIndicator
 
-    private  lateinit var  cocktail_image : ImageView
     private lateinit var  searchText: TextInputEditText
     private  lateinit var  searchButton : Button
-
-    private lateinit var topAppBar: androidx.appcompat.widget.Toolbar
+    private lateinit var  randomButton : ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,17 +41,11 @@ class SearchFragment : Fragment() , CocktailAdapter.OnItemClickListener {
         progressIndicator = view.findViewById(R.id.progress_indicator)
         searchText = view.findViewById(R.id.searchpage_textinputeditfile)
         searchButton = view.findViewById(R.id.searchpage_button)
-
-        topAppBar = view.findViewById(R.id.topAppBar)
-        topAppBar.setOnMenuItemClickListener{
-            when(it.itemId){
-              R.id.random_recipe -> {
-                  displayRandomCocktail()
-                  true
-              }
-                else -> false
-            }
+        randomButton = view.findViewById(R.id.random_recipe)
+        randomButton.setOnClickListener{
+            displayRandomCocktail()
         }
+
 
         searchText.addTextChangedListener(object : android.text.TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

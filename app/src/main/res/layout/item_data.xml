@@ -29,7 +29,9 @@
                 android:textColor="@color/black"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:fontFamily="@font/spacegrotesk"
+                />
 
         </LinearLayout>
     <ImageView

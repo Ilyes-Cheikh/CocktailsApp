@@ -35,7 +35,10 @@ class FavoritesFragment : Fragment(), CocktailAdapter.OnItemClickListener {
         performFromSharedPreferences()
         return view
     }
-
+    override fun onResume() {
+        super.onResume()
+        performFromSharedPreferences()
+    }
 
     private fun displayCocktails(cocktails: List<Cocktail>){
         if(isAdded){

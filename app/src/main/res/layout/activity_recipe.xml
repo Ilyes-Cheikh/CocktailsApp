@@ -16,6 +16,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:backgroundTint="@color/purple"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleCentered="true"
@@ -43,31 +44,102 @@
                 android:layout_marginTop="@android:dimen/app_icon_size"
                 android:layout_gravity="center" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/favorite_button"
-                android:text="Add to Favorites" />
+
             <ImageView
                 android:id="@+id/recipe_image"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_margin="5dp"/>
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="20dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/favorite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recipe_category"/>
+                android:text="Category"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:background="@color/purple"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recipe_category"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:padding="5dp"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Served in"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:background="@color/purple"
+                android:padding="5dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recipe_glass"  />
-
+                android:id="@+id/recipe_glass"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:padding="5dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recipe_instructions"  />
+                android:text="Instructions"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:background="@color/purple"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recipe_instructions"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="20dp"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingredients"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:background="@color/purple"
+                android:padding="5dp"
+                />
+            <TextView
+                android:id="@+id/recipe_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spacegrotesk"
+                android:textSize="20dp"
+                android:padding="5dp"/>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
